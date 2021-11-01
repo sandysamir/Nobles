@@ -12,5 +12,7 @@ class ShopController extends Controller
         $books=Book::select('id','bookname', 'description','image','author','price')->get();
         return view('noblesite.shop',compact('books'));
     }
-    
+    public function search(Request $request)
+    {
+return$request;    }
 }

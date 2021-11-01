@@ -24,9 +24,11 @@
                             <div class="sidebar-widget mb-50">
                                 <h3 class="sidebar-title">Search Products</h3>
                                 <div class="sidebar-search">
-                                    <form action="#">
-                                        <input placeholder="Search Products..." type="text">
-                                        <button><i class="ti-search"></i></button>
+                                    <form type="POST" id="searchBook" action="">
+                                    @csrf
+                                        <input placeholder="Search Products by names" name="bookName" id="bookName" type="text">
+                                        <button  class="search_btn"><i class="ti-search"></i></button>
+
                                     </form>
                                 </div>
                             </div>
@@ -561,6 +563,31 @@ $(document).on('click', '.cart_btn', function (e) {
                                       }
                     if (data.status == false) {
                      console.log('cantaddedToCart');
+
+                                      }
+}, error: function (reject) {}
+});
+  });
+$(document).on('click', '.search_btn', function (e) {
+            e.preventDefault();
+            var formData =new FormData($('#searchBook')[0]);
+                 var book_id =    $('#bookName').val() 
+                // alert(book_id);
+              
+                $.ajax({
+                type: 'GET',
+                url: "{{route('search')}}",
+                data: {
+                    '_token': "{{csrf_token()}}",
+                    'book_id':book_id },
+                success: function (data) {
+
+                 if (data.status == true) {
+                     console.log('booknamee');
+                      
+                                      }
+                    if (data.status == false) {
+                     console.log('cerreid');
 
                                       }
 }, error: function (reject) {}

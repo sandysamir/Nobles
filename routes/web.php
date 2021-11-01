@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/product-details/{book_id}', 'nobles\ProductdetailsController@productdetails')->name('product-details');
 Route::get('/shop', 'nobles\ShopController@shop')->name('shop');
+Route::get('/search', 'nobles\ShopController@search')->name('search');
+
 /////////////////////wishlist//////////////////////
 Route::group(['middleware'=>'auth'], function()
 {
