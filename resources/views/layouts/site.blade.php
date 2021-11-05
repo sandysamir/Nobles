@@ -56,7 +56,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a style ="color:black;"class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -138,6 +138,8 @@
 
 @yield('content')
 	<!-- all js here -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
     <script src="{{asset('/js/vendor/jquery-1.12.0.min.js')}}"></script>
         <script src="{{asset('/js/popper.js')}}"></script>
         <script src="{{asset('/js/bootstrap.min.js')}}"></script>

@@ -12,4 +12,6 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+   .js('resources/js/allbooks.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+//.j hena 3shan anady 3la file js gded w b3ml npm install / npm install -g cross-env w de mohma n3rrfa bs de l awel w b3deen npm run dev.

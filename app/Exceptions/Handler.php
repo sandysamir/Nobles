@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Auth\AuthenticationException;
 
 class Handler extends ExceptionHandler
 {
@@ -49,7 +50,16 @@ class Handler extends ExceptionHandler
      * @throws \Throwable
      */
     public function render($request, Throwable $exception)
-    {
-        return parent::render($request, $exception);
+    {    //hena bn3ml en lma yahsl error 401 yrouh lel admin login 
+         if ($exception instanceof AuthenticationException ){
+        // dd($exception);
+        $guards=$exception->guards();
+        if( in_array('admin',$guards)){
+            return redirect('admin/login');
+        }
+        
+         }
+         return parent::render($request, $exception);
+
     }
 }

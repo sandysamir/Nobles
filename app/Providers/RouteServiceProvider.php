@@ -21,8 +21,10 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/shop';
-    public const Admin = '/adminlogin';
+    public const HOME = '/';
+    public const ADMIN = '/admin/allbooks';
+    public const ADMINLOGIN = '/admin/login';
+
 
     // public const INDEX = ; //redirect back to admin allbooks view
 

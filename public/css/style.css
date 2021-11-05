@@ -841,7 +841,29 @@
     margin: 0 15px;
     width: 45px;
 }
+.product-action button {
+    background-color: #383838;
+    border-radius: 100%;
+    color: #f7f7f7;
+    display: inline-block;
+    font-size: 24px;
+    height: 45px;
+    line-height: 52px;
+    margin: 0 15px;
+    width: 45px;
+   
+
+}
+.product-action button i {
+    position: absolute;
+    
+    transform: translate(-50%, -50%);
+}
 .product-action a:hover {
+    background-color: #050035;
+    color: #fff;
+}
+.product-action button:hover {
     background-color: #050035;
     color: #fff;
 }
@@ -875,25 +897,29 @@
 .product-content {
     padding-top: 23px;
 }
-.product-action > a.animate-left {
+.product-action > button.animate-left {
     transform: translateX(-20px);
     transition: all 0.4s ease 0s;
 }
-.product-wrapper:hover .product-action > a.animate-left {
+.product-action > button.animate-left {
+    transform: translateX(-20px);
+    transition: all 0.4s ease 0s;
+}
+.product-wrapper:hover .product-action > button.animate-left {
     transform: translateX(0px);
 }
-.product-action > a.animate-right {
+.product-action > button.animate-right {
     transform: translateX(20px);
     transition: all 0.4s ease 0s;
 }
-.product-wrapper:hover .product-action > a.animate-right {
+.product-wrapper:hover .product-action > button.animate-right {
     transform: translateX(0px);
 }
-.product-action > a.animate-top {
+.product-action > button.animate-top {
     transform: translateY(20px);
     transition: all 0.4s ease 0s;
 }
-.product-wrapper:hover .product-action > a.animate-top {
+.product-wrapper:hover .product-action > button.animate-top {
     transform: translateY(0px);
 }
 .product-wrapper:hover .product-action {

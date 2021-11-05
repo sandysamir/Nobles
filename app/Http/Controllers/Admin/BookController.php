@@ -13,7 +13,10 @@ use Auth;
 class BookController extends Controller
 {
     
-
+    public function __construct()
+    { //3amlna copy mn login bt3t l user w ghyrna l guard bs w redirect to .
+        $this->middleware('auth:admin');
+    }
     public function pdf()
     {
         $books=Book::select('id','bookname', 'description','image','author','pdf')->first();
@@ -76,8 +79,8 @@ class BookController extends Controller
    
     return view('admindashboard.allbooks',compact('books'));
   } 
-  public function  deletebook( request $request){
-      dd($request);
+  public function deletebook(Request $request){
+  
     $book = Book::find($request->id); 
 
     if (!$book)
@@ -88,7 +91,6 @@ class BookController extends Controller
         'status' => true,
         'id'=>$request->id
     ]);
-
 }
 public function editbook($book_id){
     $book=Book::select('id','bookname', 'description','author','price')->find($book_id);

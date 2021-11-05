@@ -15,9 +15,9 @@ class Book extends Model
     {
         return $this->belongsToMany(User::class,'wishlists','book_id','user_id'); //bktb esm l pivot table lw mghyrah w bktb gmbo id mnhena w id l relatd user.
     }
-    public function addToCart()
-    {
-        return $this->belongsToMany(User::class,'carts','book_id','user_id'); //bktb esm l pivot table lw mghyrah w bktb gmbo id mnhena w id l relatd user.
-    }
+    // public function addToCart()
+    // {
+    //     return $this->belongsToMany(User::class,'carts','book_id','user_id'); //bktb esm l pivot table lw mghyrah w bktb gmbo id mnhena w id l relatd user.
+    // }
     
 }

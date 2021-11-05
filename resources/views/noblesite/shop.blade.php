@@ -45,53 +45,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="sidebar-widget mb-45">
-                                <h3 class="sidebar-title">Categories</h3>
-                                <div class="sidebar-categories">
-                                    <ul>
-                                        <li><a href="#">Accessories <span>4</span></a></li>
-                                        <li><a href="#">Book <span>9</span></a></li>
-                                        <li><a href="#">Clothing <span>5</span> </a></li>
-                                        <li><a href="#">Homelife <span>3</span></a></li>
-                                        <li><a href="#">Kids & Baby <span>4</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="sidebar-widget sidebar-overflow mb-45">
-                                <h3 class="sidebar-title">color</h3>
-                                <div class="product-color">
-                                    <ul>
-                                        <li class="red">b</li>
-                                        <li class="pink">p</li>
-                                        <li class="blue">b</li>
-                                        <li class="sky">b</li>
-                                        <li class="green">y</li>
-                                        <li class="purple">g</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="sidebar-widget mb-40">
-                                <h3 class="sidebar-title">size</h3>
-                                <div class="product-size">
-                                    <ul>
-                                        <li><a href="#">xl</a></li>
-                                        <li><a href="#">m</a></li>
-                                        <li><a href="#">l</a></li>
-                                        <li><a href="#">ml</a></li>
-                                        <li><a href="#">lm</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                             <div class="sidebar-widget mb-50">
                                 <h3 class="sidebar-title">Top rated products</h3>
                                 <div class="sidebar-top-rated-all">
+                                    @foreach($bookrandom as $bookrandoms)
                                     <div class="sidebar-top-rated mb-30">
                                         <div class="single-top-rated">
                                             <div class="top-rated-img">
-                                                <a href="#"><img src="{{asset('/img/product/sidebar-product/1.jpg')}}" alt=""></a>
+                                                <a href="#"><img src="{{asset('/storage/'.$bookrandoms->image)}}" style="width:91px; height:88px;" alt=""></a>
                                             </div>
                                             <div class="top-rated-text">
-                                                <h4><a href="#">Flying Drone</a></h4>
+                                                <h4><a href="#">{{$bookrandoms->bookname}}</a></h4>
                                                 <div class="top-rated-rating">
                                                     <ul>
                                                         <li><i class="pe-7s-star"></i></li>
@@ -101,70 +65,11 @@
                                                         <li><i class="pe-7s-star"></i></li>
                                                     </ul>
                                                 </div>
-                                                <span>$140.00</span>
+                                                <span>{{$bookrandoms->price}}.00 $</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="sidebar-top-rated mb-30">
-                                        <div class="single-top-rated">
-                                            <div class="top-rated-img">
-                                                <a href="#"><img src="{{asset('/img/product/sidebar-product/2.jpg')}}" alt=""></a>
-                                            </div>
-                                            <div class="top-rated-text">
-                                                <h4><a href="#">Flying Drone</a></h4>
-                                                <div class="top-rated-rating">
-                                                    <ul>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                                <span>$140.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sidebar-top-rated mb-30">
-                                        <div class="single-top-rated">
-                                            <div class="top-rated-img">
-                                                <a href="#"><img src="{{asset('/img/product/sidebar-product/3.jpg')}}" alt=""></a>
-                                            </div>
-                                            <div class="top-rated-text">
-                                                <h4><a href="#">Flying Drone</a></h4>
-                                                <div class="top-rated-rating">
-                                                    <ul>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                                <span>$140.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sidebar-top-rated mb-30">
-                                        <div class="single-top-rated">
-                                            <div class="top-rated-img">
-                                                <a href="#"><img src="{{asset('/img/product/sidebar-product/4.jpg')}}" alt=""></a>
-                                            </div>
-                                            <div class="top-rated-text">
-                                                <h4><a href="#">Flying Drone</a></h4>
-                                                <div class="top-rated-rating">
-                                                    <ul>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                        <li><i class="pe-7s-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                                <span>$140.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -217,15 +122,9 @@
                                                         </a>
                                                         <span>hot</span>
                                                         <div class="product-action">
-                                                            <a class="wishlist_btn animate-left" title="Wishlist" book_id="{{$book->id}}" href="{{route('addwishlist')}}">
-                                                                <i class="pe-7s-like"></i>
-                                                            </a>
-                                                            <a class="cart_btn animate-top" title="Add To Cart" cart_book="{{$book->id}}" href="{{route('addcart')}}">
-                                                                <i class="pe-7s-cart"></i>
-                                                            </a>
-                                                            <a class="animate-right" title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#">
-                                                                <i class="pe-7s-look"></i>
-                                                            </a>
+                                                        <button type="button" book_id="{{$book->id}}" class="wishlist_btn animate-left  "> <i class="pe-7s-like"> </i> </button>
+                                                        <button type="button" title="Add To Cart" cart_book="{{$book->id}}" class="cart_btn animate-top "> <i class="pe-7s-cart"> </i></button>
+                                                        <button type="button" onclick="location.href='{{route('product-details',$book->id)}}';" title="Quick View" class="animate-right ">  <i class="pe-7s-look"></i></button>
                                                         </div>
                                                     </div>
                                                     <div class="product-content">
@@ -335,97 +234,7 @@
                 </div>
             </div>
         </footer>
-        <!-- modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span class="pe-7s-close" aria-hidden="true"></span>
-            </button>
-            <div class="modal-dialog modal-quickview-width" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="qwick-view-left">
-                            <div class="quick-view-learg-img">
-                                <div class="quick-view-tab-content tab-content">
-                                    <div class="tab-pane active show fade" id="modal1" role="tabpanel">
-                                        <img src="{{asset('/img/quick-view/l1.jpg')}}" alt="">
-                                    </div>
-                                    <div class="tab-pane fade" id="modal2" role="tabpanel">
-                                        <img src="{{asset('/img/quick-view/l2.jpg')}}" alt="">
-                                    </div>
-                                    <div class="tab-pane fade" id="modal3" role="tabpanel">
-                                        <img src="{{asset('/img/quick-view/l3.jpg')}}" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="quick-view-list nav" role="tablist">
-                                <a class="active" href="#modal1" data-toggle="tab" role="tab">
-                                    <img src="{{asset('/img/quick-view/s1.jpg')}}" alt="">
-                                </a>
-                                <a href="#modal2" data-toggle="tab" role="tab">
-                                    <img src="{{asset('/img/quick-view/s2.jpg')}}" alt="">
-                                </a>
-                                <a href="#modal3" data-toggle="tab" role="tab">
-                                    <img src="{{asset('/img/quick-view/s3.jpg')}}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="qwick-view-right">
-                            <div class="qwick-view-content">
-                                <h3>Handcrafted Supper Mug</h3>
-                                <div class="price">
-                                    <span class="new">$90.00</span>
-                                    <span class="old">$120.00  </span>
-                                </div>
-                                <div class="rating-number">
-                                    <div class="quick-view-rating">
-                                        <i class="pe-7s-star"></i>
-                                        <i class="pe-7s-star"></i>
-                                        <i class="pe-7s-star"></i>
-                                        <i class="pe-7s-star"></i>
-                                        <i class="pe-7s-star"></i>
-                                    </div>
-                                    <div class="quick-view-number">
-                                        <span>2 Ratting (S)</span>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do tempor incididun ut labore et dolore magna aliqua. Ut enim ad mi , quis nostrud veniam exercitation .</p>
-                                <div class="quick-view-select">
-                                    <div class="select-option-part">
-                                        <label>Size*</label>
-                                        <select class="select">
-                                            <option value="">- Please Select -</option>
-                                            <option value="">900</option>
-                                            <option value="">700</option>
-                                        </select>
-                                    </div>
-                                    <div class="select-option-part">
-                                        <label>Color*</label>
-                                        <select class="select">
-                                            <option value="">- Please Select -</option>
-                                            <option value="">orange</option>
-                                            <option value="">pink</option>
-                                            <option value="">yellow</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="quickview-plus-minus">
-                                    <div class="cart-plus-minus">
-                                        <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
-                                    </div>
-                                    <div class="quickview-btn-cart">
-                                        <a class="btn-hover-black" href="#">add to cart</a>
-                                    </div>
-                                    <div class="quickview-btn-wishlist">
-                                        <a class="btn-hover" href="#"><i class="pe-7s-like"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-		<!-- modal -->
+  
         <div class="modal fade" id="exampleCompare" tabindex="-1" role="dialog" aria-hidden="true">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span class="pe-7s-close" aria-hidden="true"></span>
@@ -517,18 +326,19 @@
 @stop
 @section('script') 
 <script>
-    $(document).on('click', '.wishlist_btn', function (e) {
+$(document).on('click', '.wishlist_btn', function (e) {
             e.preventDefault();
-           
+      
                 var book_id =  $(this).attr('book_id');  
-               
-              
                 $.ajax({
-                type: 'GET',
+                type: 'POST',
                 url: "{{route('addwishlist')}}",
                 data: {
                     '_token': "{{csrf_token()}}",
                     'book_id':book_id },
+                    statusCode: {
+      401:function() {  top.location.href = 'login'; },},
+               
                 success: function (data) {
 
                  if (data.status == true) {
@@ -541,7 +351,11 @@
                      console.log('cantaddedToWishlist');
 
                                       }
-}, error: function (reject) {}
+}, error: function (reject) {
+   
+    console.log('cantaddedfdfshlist');
+   
+}
 });
   });
 $(document).on('click', '.cart_btn', function (e) {
@@ -579,7 +393,8 @@ $(document).on('click', '.search_btn', function (e) {
                 url: "{{route('search')}}",
                 data: {
                     '_token': "{{csrf_token()}}",
-                    'book_id':book_id },
+                    'bookName':book_id },
+                    
                 success: function (data) {
 
                  if (data.status == true) {

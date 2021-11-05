@@ -12,10 +12,9 @@ class ProductdetailsController extends Controller
     {
         
         $books=Book::select('id','bookname', 'description','image','author','price')->where('id',$book_id)->first();
-        $book1=Book::select('id','bookname', 'description','image','author','price')->first();
-        $book2=Book::select('id','bookname', 'description','image','author','price')->skip(1)->first();
-        $book3=Book::select('id','bookname', 'description','image','author','price')->skip(2)->first();
+        $bookrandom= Book::inRandomOrder()->limit(3)->get();
 
-        return view('noblesite.product-details',compact('books','book1','book2','book3'));
+
+        return view('noblesite.product-details',compact('books','bookrandom'));
     }
 }

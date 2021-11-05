@@ -39,7 +39,7 @@
 
             <td>
             <a href="{{route('editbook',$book->id)}}"  edit_book="{{$book->id}}"class="edit_btn btn btn-primary"> Edit</a>
-            <a href="{{route('deletebook')}}"  delete_book="{{$book->id}}" class="delete_btn btn btn-danger">delete</a>
+            <button  delete_book="{{$book->id}}" class="delete_btn btn btn-danger"> delete </button>
                </td></div>
         </tr>
         @endforeach
@@ -50,27 +50,17 @@
     @stop
 @section('script') 
 <script>
-$(document).on('click', '.delete_btn', function (e) {
+    // global app configuration object
+    var config = {
+        routes: {
+            zone: "{{route('deletebook')}}"
+        }
+        ,data:{
+          csrf:  "{{csrf_token()}}"
+        },
+    };
+    </script>
+<script src="{{mix('js/allbooks.js')}}">
 
-            e.preventDefault();
-            var book_id =  $(this).attr('delete_book');
-            $.ajax({
-                type: 'POST',
-                url: "{{route('deletebook')}}",
-                data: {
-                    '_token': "{{csrf_token()}}",
-                    'id':book_id },
-                success: function (data) {
-
-                 if (data.status == true) {
-                     console.log('deleted');
-                      $('.BookingRow'+data.id).remove();  
-                                      }
-                                      if (data.status == false) {
-                      $('.BookingRow'+data.id).remove();  
-                                      }
-}, error: function (reject) {}
-});
-  });
-   </script>
+</script>
   @stop

@@ -2,53 +2,52 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Providers\RouteServiceProvider;
-use App\Admin;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Support\Facades\Validator;
 
+use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 class AdminController extends Controller
 {
- 
+    /*
+    |--------------------------------------------------------------------------
+    | Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles authenticating users for the application and
+    | redirecting them to your home screen. The controller uses a trait
+    | to conveniently provide its functionality to your applications.
+    |
+    */
 
-    public function login(request $request)
-    { if(!Auth::guard('admin')->attempt($request->only('email','password'),$request->filled('remember'))){
-        throw ValidationException::withMessages([
-            'email'=>'uncorrect email',
-            'password'=> 'uncorrect password'
-        ]);
-    }
-        return redirect()->intended(route('allbooks'));
-    
-    }
-    // protected function validator(array $data)
-    // {
-    //     return Validator::make($data, [
-    //         'name' => ['required', 'string', 'max:255'],
-    //         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-    //         'password' => ['required', 'string', 'min:8', 'confirmed'],
-    //     ]);
-    // }
-    public function register(request $request)
-    {
-       
-            $data= Admin::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-            ]);
-            return redirect()->intended(route('allbooks'));
-    }
+    use AuthenticatesUsers;
 
-    public function logout()
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = RouteServiceProvider::ADMIN; 
+    //hena byrouh lma ydkhol 3la login b3dha bydkhol 3la ADMIN ( admin/allbooks)
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    { //3amlna copy mn login bt3t l user w ghyrna l guard bs w redirect to .
+        $this->middleware('guest')->except('logout');
+    }
+    protected function guard()
     {
-        auth()->guard('admin')->logout();
+        return Auth::guard('admin');
+    }
+    //function l guard de gat mnen b2a  AuthenticatesUsers akher function feha by3ml l guard by default hena ehna ghyrnah 
+ public function logout(){
+    auth()->guard('admin')->logout();
         return redirect('admin/login');
-    }
+
+ }
 }
