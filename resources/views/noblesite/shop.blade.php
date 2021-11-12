@@ -109,10 +109,9 @@
                                 <div class="alert alert-success" id="success_msg" style="display: none">this item is added in your favourite</div>
 
                                     <div id="grid-sidebar7" class="tab-pane fade active show">
-                                        <div class="row">
+                                        <div class="row" id='appendHere'>
 
-                
-                                        @foreach($books as $book)
+                                            @foreach($books as $book)
                                             <div class="col-lg-4 col-md-6">
                                                 <div class="product-wrapper product-box-style mb-30">
                                                     <div class="product-img">
@@ -134,6 +133,7 @@
                                                 </div>
                                            </div>
                                            @endforeach
+                                     
                                    
                                                 </div>
                                             </div>
@@ -337,12 +337,15 @@ $(document).on('click', '.wishlist_btn', function (e) {
                     '_token': "{{csrf_token()}}",
                     'book_id':book_id },
                     statusCode: {
-      401:function() {  top.location.href = 'login'; },},
+                                401:function() {
+                                      top.location.href = 'login'; 
+                                      },},
                
                 success: function (data) {
 
                  if (data.status == true) {
                     $('#success_msg').show();
+                    
                      console.log('addedToWishlist');
                       
                                       }
@@ -395,17 +398,17 @@ $(document).on('click', '.search_btn', function (e) {
                     '_token': "{{csrf_token()}}",
                     'bookName':book_id },
                     
-                success: function (data) {
+                success: function (data) {              
+                    $('#appendHere').html(data);
 
-                 if (data.status == true) {
-                     console.log('booknamee');
-                      
-                                      }
+                                      
                     if (data.status == false) {
                      console.log('cerreid');
 
                                       }
-}, error: function (reject) {}
+}, error: function (reject) {
+    console.log('booknamee');
+}
 });
   });
    </script>

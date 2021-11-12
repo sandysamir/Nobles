@@ -17,10 +17,20 @@ class ShopController extends Controller
     }
     public function search(Request $request)
     {  
-    // $bookName=Book::select('bookname')->where('bookname','LIKE','%'.$request->bookName.'%')->get();
     $books=Book::select('id','bookname', 'description','image','author','price')->where('bookname','LIKE','%'.$request->bookName.'%')->get();
-    // return $books;
-    return view('noblesite.shop',compact('books'));
+    $bookrandom= Book::inRandomOrder()->limit(4)->get();
+    // return response()->json([
+    //     'status' => true,
+    //     'books' =>  $books,
+    //     'bookrandom'=> $bookrandom,
+    // ]);
+    return view('noblesite.appendshop',compact('books','bookrandom'))->render();
 
     }
 }
+// return response()->json(['url'=>url('/')]);
+    //  $returnHTML = view('noblesite.shop',compact('books','bookrandom'))->render();
+    //  return response()->json(array('status' => true, 'html'=>$returnHTML));
+    // return response()->json(['status' => true,
+    //     'view' => view('noblesite.shop', compact('books', 'bookrandom'))->render(),
+    // ]);

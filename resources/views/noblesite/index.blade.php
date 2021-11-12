@@ -7,7 +7,7 @@
 <body>
 
     <div class="slider-area">
-        <div class="slider-active owl-carousel">
+        {{-- <div class="slider-active owl-carousel"> --}}
             <div class="single-slider single-slider-book1 bg-img" style="background-image: url({{asset('/img/slider/3.jpg')}})">
                 <div class="container">
                     <div class="slider-animation slider-content-book fadeinup-animated">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <div class="single-slider single-slider-book1 bg-img" style="background-image: url({{asset('/img/slider/3.jpg')}})">
+            {{-- <div class="single-slider single-slider-book1 bg-img" style="background-image: url({{asset('/img/slider/3.jpg')}})">
                 <div class="container">
                     <div class="slider-animation slider-content-book fadeinup-animated">
                         <h1 class="animated"><span>Knowledge</span> is</h1>
@@ -27,7 +27,7 @@
                         <a href="{{route('shop')}}">More Books</a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     <!-- pricing banner area start -->
@@ -127,11 +127,11 @@
                                     <div class="product-wrapper">
                                         <div class="product-img-2">
                                             <a href="{{route('shop')}}">
-                                                <img src="{{asset('/storage/'.$book->image)}}" style="width:265px; height: 265px;" alt="">
+                                                <img src="{{asset('/storage/'.$book->image)}}" style="width:265px; height: 265px;" alt="{{$book->bookname}}">
                                             </a>
                                             <div class="product-action-2">
-                                                <a class="animate-left add-style-2" title="Add To Cart" href="{{route('cart')}}">Add to Cart <i class="ti-shopping-cart"></i></a>
-                                                <a class="animate-right wishlist-style-2" title="wishlist" href="{{route('wishlist')}}">
+                                                <a class="animate-left add-style-2" title="Add To Cart" href="{{route('shop')}}">Add to Cart <i class="ti-shopping-cart"></i></a>
+                                                <a class="animate-right wishlist-style-2" title="wishlist" href="{{route('shop')}}">
                                                     <i class="ti-heart"></i>
                                                 </a>
                                             </div>
@@ -139,13 +139,7 @@
                                         <div class="product-content-2 text-center">
                                             <h4><a href="{{route('product-details',$book->id)}}">{{$book->bookname}}</a></h4>
                                             <span>By: {{$book->author}}</span>
-                                            <div class="product-rating">
-                                                <i class="ti-star black"></i>
-                                                <i class="ti-star black"></i>
-                                                <i class="ti-star black"></i>
-                                                <i class="ti-star"></i>
-                                                <i class="ti-star"></i>
-                                            </div>
+                                       
                                         </div>
                                     </div>
                                 </div>
@@ -254,18 +248,18 @@
    
     <div class="brand-logo-area pl-100 pr-100">
         <div class="ptb-135 gray-bg">
-            <div class="brand-logo-active owl-carousel">
+            <div class="brand-logo owl-carousel">
                 <div class="single-brand">
                     <img src="{{asset('/img/brand-logo/6.png')}}" alt="">
                 </div>
                 <div class="single-brand">
-                    <img src="{{asset('/img/brand-logo/2.png')}}" alt="">
+                    <img src="{{asset('/img/brand-logo/6.png')}}" alt="">
                 </div>
                 <div class="single-brand">
                     <img src="{{asset('/img/brand-logo/1.png')}}" alt="">
                 </div>
                 <div class="single-brand">
-                    <img src="{{asset('/img/brand-logo/3.png')}}" alt="">
+                    <img src="{{asset('/img/brand-logo/6.png')}}" alt="">
                 </div>
                 <div class="single-brand">
                     <img src="{{asset('/img/brand-logo/4.png')}}" alt="">

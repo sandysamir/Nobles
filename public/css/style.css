@@ -610,7 +610,7 @@
 }
 .owl-item .slider-animation * {
     -webkit-animation-duration: 1.3s;
-    animation-duration: 1.3s;
+    animation-duration: 1.5s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
