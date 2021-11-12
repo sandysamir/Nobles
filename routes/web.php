@@ -35,3 +35,4 @@ Route::post('/checkoutnobles', 'nobles\CheckoutController@checkoutnobles')->name
 Route::get('/cart', 'nobles\CartController@cart')->name('cart')->middleware('auth');
 Route::get('/addcart', 'nobles\CartController@addcart')->name('addcart')->middleware('auth');;
 Route::post('/deletecart', 'nobles\CartController@deletecart')->name('deletecart');
+Route::view('/check', 'check');

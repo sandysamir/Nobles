@@ -400,14 +400,9 @@ $(document).on('click', '.search_btn', function (e) {
                     
                 success: function (data) {              
                     $('#appendHere').html(data);
-
-                                      
-                    if (data.status == false) {
-                     console.log('cerreid');
-
-                                      }
+console.log('succ');
 }, error: function (reject) {
-    console.log('booknamee');
+    $('#appendHere').html(data);
 }
 });
   });
